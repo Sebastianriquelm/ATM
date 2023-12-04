@@ -1,0 +1,9 @@
+.headerContainer {
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+
+  height: min(13vw, 80px);
+}

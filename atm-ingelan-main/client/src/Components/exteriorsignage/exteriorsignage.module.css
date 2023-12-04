@@ -1,0 +1,9 @@
+.existBtnRight {
+  display: flex;
+  justify-content: center;
+  height: min(10vw, 50px);
+}
+
+.imgWidth {
+  height: 100%;
+}

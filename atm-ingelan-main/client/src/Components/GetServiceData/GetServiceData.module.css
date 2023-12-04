@@ -1,0 +1,23 @@
+.label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form {
+    display: "flex";
+    flex-direction: "column";
+    gap: 17px;
+}
+
+.label input, .label select {
+    width: 50%;
+    height: 28px;
+}
+
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

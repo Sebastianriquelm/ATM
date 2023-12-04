@@ -1,0 +1,17 @@
+.labelInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: var(--main-font-size); */
+}
+
+.inputText {
+  padding: 5px;
+  height: var(--main-font-size);
+  width: 50%;
+  font-size: var(--secondary-font-size);
+  background-color: #ededf4;
+  color: #4d4d4d;
+  border: 2px solid var(--main-text-color);
+  border-radius: 15px;
+}

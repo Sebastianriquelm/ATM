@@ -1,0 +1,10 @@
+.existBtnRight {
+  width: min(13vw, 100px);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.imgWidth {
+  width: 100%;
+}

@@ -1,0 +1,7 @@
+.submitLabel {
+  display: flex;
+  justify-content: center;
+  height: min(10vw, 70px);
+  margin: 20px 0;
+  cursor: pointer;
+}

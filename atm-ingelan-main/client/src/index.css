@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Futura';
+  src: url('./Assets/fonts/tt0140m_.ttf') format('embedded-opentype'), /* Internet Explorer */
+  url('./Assets/fonts/tt0140m_.ttf') format('woff2'), /* Super Modern Browsers */
+  url('./Assets/fonts/tt0140m_.ttf') format('woff'), /* Pretty Modern Browsers */
+  url('./Assets/fonts/tt0140m_.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('./Assets/fonts/tt0140m_.ttf') format('svg'); /* Legacy iOS */
+}
+
+* {
+  margin: 0;
+  font-family: 'Futura';
+  box-sizing: border-box;
+
+  --main-text-color: rgb(58, 72, 226);
+
+  --main-font-size: clamp(20px, 5vw, 40px);
+  --secondary-font-size: clamp(12px, 3vw, 28px);
+}
+
+body {
+  font-size: var(--main-font-size);
+  padding: 20px;
+  color: var(--main-text-color);
+  background-image: url('./Assets/Images/background/FONDO_ATM_INGE.png');
+}

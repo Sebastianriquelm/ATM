@@ -1,0 +1,36 @@
+.messageContainer {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 37px;
+  cursor: pointer;
+}
+
+.text {
+  text-align: center;
+}
+
+.messageImg {
+  width: min(900px, 100%);
+}
+
+.waitingMessage {
+  color: white;
+  padding: 30px 30px;
+  text-align: center;
+  background-color: #990000;
+  border-radius: 30px;
+  animation: opacity 1s linear infinite;
+  animation-direction: alternate;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}

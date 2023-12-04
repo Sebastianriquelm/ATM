@@ -1,0 +1,3 @@
+.checkImage {
+  height: clamp(20px, 6vw, 45px);
+}

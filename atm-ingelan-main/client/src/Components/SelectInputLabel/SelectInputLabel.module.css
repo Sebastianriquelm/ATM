@@ -1,0 +1,17 @@
+.labelInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select {
+  background-color: #ededf4;
+  border: 2px solid var(--main-text-color);
+  border-radius: 15px;
+  font-family: 'Futura';
+  padding: 0 5px;
+  height: var(--main-font-size);
+  width: 50%;
+  font-size: var(--secondary-font-size);
+  color: #4d4d4d;
+}

@@ -1,0 +1,28 @@
+.fileLabels {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: min(1vw, 15px);
+  margin: 5px 0;
+}
+
+.fileLabel {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.fileNameText {
+  font-size: var(--secondary-font-size);
+}
+
+.buttonImage {
+  height: clamp(22px, 5vw, 40px);
+}
+
+.hiddenInput {
+  height: 1px;
+  width: 1px;
+  position: relative;
+  bottom: clamp(11px, 2.5vw, 20px);
+}

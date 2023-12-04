@@ -1,0 +1,10 @@
+.button {
+    background-color: #808080;
+    height: clamp(22px, 5vw, 40px);
+    font-family: 'Futura';
+    color: white;
+    border: 0;
+    border-radius: clamp(22px, 5vw, 40px);
+    padding: 0 13px;
+    font-size: calc(var(--secondary-font-size) - 2px);
+}
