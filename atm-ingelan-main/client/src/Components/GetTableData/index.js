@@ -34,37 +34,54 @@ export default function GetTableData(props) {
 
   const tableRows = (dataType, data) => {
     const dataTypeToClient = {
+      //atm_site
       'atm_id': 'ATM ID',
-      'day': 'Día',
-      'place': 'Lugar',
-      'electric_connection': 'Conexión eléctrica',
-      'anti_vandal_pipe': 'Tubería antivandálica',
-      'paint_state': 'Estado de la pintura',
-      'trash': 'Basurero',
-      'floor_state': 'Estado del piso',
-      'keys_delivered': 'Entrega de llaves',
-      'communication_furniture_signage': 'Señalética del mueble de comunicación',
-      'side_signals': 'Señalética lateral',
-      'redbanc_signals': 'Señaléticas redbanc',
-      'comments': 'Obervaciones',
-      'technicians_name': 'Técnico en terreno',
-      'operational_upon_arrival': 'Operativo al llegar',
-      'temperature_in_celsius': 'Temperatura en C°',
-      'sonda_or_redbanc_attention': 'Sonda o Redbanc',
-      'attention_names': 'Nombre del consultor',
-      'attention_comments': 'Comentarios del consultor',
-      'network_wire_state': 'Estado del cable de red',
-      'local_voltage_fn': 'Voltaje local Fase Neutro',
-      'local_voltage_ft': 'Voltaje local Fase Tierra',
-      'local_voltage_nt': 'Voltaje local Neutro Tierra',
-      'conditioner_fn': 'Acondicionador Fase Neutro',
-      'conditioner_ft': 'Acondicionador Fase Tierra',
-      'conditioner_nt': 'Acondicionador Neutro Tierra',
-      'other_voltages_fn': 'Voltajes otro punto Fase Neutro',
-      'other_voltages_ft': 'Voltajes otro punto Fase Tierra',
-      'other_voltages_nt': 'Voltajes otro punto Neutro Tierra'
+      'day': 'Fecha Auditoria',
+      'auditorname': 'Nombre Auditor',
+      'atmaccesscontrol': 'Estado acceso al cajero',
+      'operationalaccesscontrol': 'Control Acceeso operativo',
+      'electricalconnections': 'Conexión eléctrica visibles',
+      'generalstatusatmspace': 'Estado donde se ubica ATM',
+      'floorstate': 'Estado del piso',
+      'statewalls': 'Estado de las paredes',
+      'doorstatus': 'Estado de las puertas',
+      'stateheavens': 'Estado del cielo',
+      'airconditioningstatus': 'Estado Aire acondicionado',
+      'lightingstatus': 'Estado luminaria',
+      'furniturecondition': 'Estado muebles',
+      'statemonitoringcameras': 'Estado general Camaras de monitoreo',
+      //physical_at,
+      'atmscreenstatus': 'Estado pantalla ATM',
+      'atmkeyboardstatus': 'Teclado ATM cumple estandares',
+      'damagedatmkeypads': 'Teclado ATM presenta daños',
+      'keyboardcovers': 'Cuenta con cubre teclado',
+      'legiblereceipt': 'ATM imprime comprobante legible',
+      'atmtrash': 'Cuenta con Basurero',
+      'atmpresentation': 'Presentacion general ATM es optima',
+      //atm_signage
+      'visa_sticker': 'Adhesivo visa es legible',
+      'visa_adhesive_design': 'Adhesivo visa cumple diseño actual',
+      'visa_sticker_meets_location': 'Adhesivo visa cumple ubicacion según manual',
+      'mastercard_sticker': 'Adhesivo mastercard es legible',
+      'mastercard_adhesive_design': 'Adhesivo mastercard cumple diseño actual',
+      'mastercard_sticker_meets_location': 'Adhesivo mastercard cumple ubicacion según manual',
+      'visible_atm_number': 'Numero de ATM es visible',
+      'atm_safety_signage': 'Señalizacion de medidas de seguridad',
+      'atm_safety_measures_signage_stopdisc': 'Señalizacion de medidas de seguridad cumple estandares segun manual actual',
+      'redbanc_tape': 'Cuenta con huincha redbanc',
+      'redbanc_tape_location': 'Huincha redbanc cumple ubicacion según manual',
+      'redbanc_tape_meets_length': 'Huincha redbanc cumple norma de longitud segun manual',
+      'redbanc_ribbon_meets_design': 'Huincha redbanc cumple con diseño actual',
+      'graphic_on_the_side_of_atm': 'Gráfica lateral ATM (Publicidad) posee logo o huincha redbanc',
+      'floor_chart': 'Grafica de piso cumple norma grafica',
+      //exterior_signage
+      'redbanc_outdoor_signage': 'Estado Señaletica exterior redbanc (Puertas)',
+      'exterior_wall_signage': 'Estado señaletica exterior (Paleta muro)',
+      'exterior_signage_selfadhesive_logo': 'Estado señaletica exterior autoadhesivos de logo o huincha en ventanas y puertas ',
+      'exterior_signage_selfadhesive_logo_ok': 'Señaletica Exterior autoadhesivos de logo o huincha en ventanas y puertas cumple lo establecido en manual'
+
     }
-    const booleanStringFormat = bool => bool ? 'Bien' : 'Mal'
+    const booleanStringFormat = bool => bool ? 'Optimo' : 'Deficiente'
     return (
       <tr key={dataType}>
           <td>{dataTypeToClient[dataType] || dataType}</td>
@@ -103,25 +120,20 @@ export default function GetTableData(props) {
             </tbody>
           </table>
           <div className={styles.imageContainer}>
-            {serviceType === 'check_list' ?
+            {serviceType === 'atm_site' ?
               <>
-                <h3>Conexiones eléctricas</h3>
+                <h3>ATM Frontal</h3>
                 <img src={getPhotoRouteByCoincidence('photo1.')} alt='Foto no encontrada'/>
-                <h3>Tubería antivandálica</h3>
+                <h3>ATM Latera Derecho</h3>
                 <img src={getPhotoRouteByCoincidence('photo2.')} alt='Foto no encontrada'/>
-                <h3>Estado de la pintura</h3>
+                <h3>ATM Latera Izquierdo</h3>
                 <img src={getPhotoRouteByCoincidence('photo3.')} alt='Foto no encontrada'/>
+                <h3>N° ATM </h3>
                 <img src={getPhotoRouteByCoincidence('photo4.')} alt='Foto no encontrada'/>
                 <h3>Estado del piso</h3>
                 <img src={getPhotoRouteByCoincidence('photo5.')} alt='Foto no encontrada'/>
-                <h3>Entrega de llaves</h3>
+                <h3>Conexiones eléctricas</h3>
                 <img src={getPhotoRouteByCoincidence('photo6.')} alt='Foto no encontrada'/>
-                <h3>Señalética lateral</h3>
-                <img src={getPhotoRouteByCoincidence('photo7.')} alt='Foto no encontrada'/>
-                <h3>Fotos extra</h3>
-                <img src={getPhotoRouteByCoincidence('photo8.')} alt='Sin fotos extra'/>
-                <img onError={handleImgError} src={getPhotoRouteByCoincidence('photo9.')} alt='Foto no encontrada'/>
-                <img onError={handleImgError} src={getPhotoRouteByCoincidence('photo10.')} alt='Foto no encontrada'/>
               </>
              :
              <>
@@ -135,22 +147,7 @@ export default function GetTableData(props) {
               <img src={getPhotoRouteByCoincidence('photo4.')} alt='Foto no encontrada'/>
               <h3>Voltaje local Neutro Tierra</h3>
               <img src={getPhotoRouteByCoincidence('photo5.')} alt='Foto no encontrada'/>
-              <h3>Acondicionador Fase Neutro</h3>
-              <img src={getPhotoRouteByCoincidence('photo6.')} alt='Foto no encontrada'/>
-              <h3>Acondicionador Fase Tierra</h3>
-              <img src={getPhotoRouteByCoincidence('photo7.')} alt='Foto no encontrada'/>
-              <h3>Acondicionador Neutro Tierra</h3>
-              <img src={getPhotoRouteByCoincidence('photo8.')} alt='Foto no encontrada'/>
-              <h3>Voltajes otro punto Fase Neutro</h3>
-              <img src={getPhotoRouteByCoincidence('photo9.')} alt='Foto no encontrada'/>
-              <h3>Voltajes otro punto Fase Tierra</h3>
-              <img src={getPhotoRouteByCoincidence('photo10.')} alt='Foto no encontrada'/>
-              <h3>Voltajes otro punto Neutro Tierra</h3>
-              <img src={getPhotoRouteByCoincidence('photo11.')} alt='Foto no encontrada'/>
-              <h3>Fotos extra</h3>
-              <img src={getPhotoRouteByCoincidence('photo12.')} alt='Sin Fotos extra'/>
-              <img onError={handleImgError} src={getPhotoRouteByCoincidence('photo13.')} alt='Foto no encontrada'/>
-              <img onError={handleImgError} src={getPhotoRouteByCoincidence('photo14.')} alt='Foto no encontrada'/>
+             
              </>            
             }
           </div>

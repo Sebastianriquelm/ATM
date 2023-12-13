@@ -52,17 +52,25 @@ app.use(express.static('public', options))
 //-----------------------
 // corregir para validar
 //-----------------------
-app.get('/atm/:id', async (req, res) => {
-  const { id } = req.params
-  const selectQuery = `SELECT location FROM atm WHERE atm_id = ${id}`
+app.get('/atm_validation/:id', async (req, res) => {
+  const { id } = req.params;
+  const selectQuery = `SELECT * FROM atm_validation WHERE atm_id = ${id}`;
+  
   try {
-    const response = await pool.query(selectQuery)
-    const location = response.rows[0] ? response.rows[0].location : false
-    res.json({ "location": location })
+    const response = await pool.query(selectQuery);
+    
+    // Verifica si hay resultados
+    if (response.rows.length > 0) {
+      // Envía todos los datos de la fila como respuesta
+      res.json(response.rows[0]);
+    } else {
+      res.json({}); // No se encontraron datos para el ID especificado
+    }
   } catch (error) {
-    console.error(error)
+    console.error(error);
+    res.sendStatus(500);
   }
-})
+});
 
 const fieldsUploadsAtmsite = upload.fields([
   { name: 'photo1' },
@@ -112,8 +120,8 @@ app.post('/atm-site', fieldsUploadsAtmsite, async (req, res) => {
     const newAtmAtmsite = await pool.query(`
       INSERT INTO atm_site (
         atm_id,
-        auditorname,
         day,
+        auditorname,
         ATMaccesscontrol,
         OperationalAccessControl,
         ElectricalConnections,

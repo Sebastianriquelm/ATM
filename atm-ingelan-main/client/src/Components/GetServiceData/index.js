@@ -57,8 +57,10 @@ export default function GetServiceData() {
           Tipo de servicio: {' '}
           <select name="serviceType" value={form.serviceType} onChange={handleChange} required>
             <option value="" disabled>Tipo de servicio</option>
-            <option value="check_list">Lista de Verificación</option>
-            <option value="service_description">Descripción Servicio</option>
+            <option value="atm_site">ATM Site</option>
+            <option value="physical_atm">ATM fisico</option>
+            <option value="atm_signage">Señaletica ATM</option>
+            <option value="exterior_signage">Señaletica exterior</option>
           </select>
         </label>
         <button>Ver fechas</button>

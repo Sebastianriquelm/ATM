@@ -23,19 +23,20 @@ export default function AtmChecklist() {
     atmId: '',
     auditorname: '',
     day: '',
+    photo1: null,
+    photo2: null,
+    photo3: null,
+    photo4: null,
+    photo5: null,
     ATMaccesscontrol: false,
     OperationalAccessControl: false,
     ElectricalConnections: false,
-    photo1: null,
+    photo6: null,
     GeneralstatusATMspace: false,
     floorState: false,
     Statewalls: false,
-    photo2: null,
-    photo3: null,
     Doorstatus: false,
-    photo4: null,
     Stateheavens: false,
-    photo5: null,
     Airconditioningstatus: false,
     lightingstatus: false,
     Furniturecondition: false,
@@ -158,7 +159,7 @@ export default function AtmChecklist() {
                 />
               </div>
               <div className='itemContainer'>
-                <p style={{ marginBottom: 13 }}>Estado Piso ATM:</p>
+                <p style={{ marginBottom: 13 }}>Estado Piso ATM</p>
                 <FileInputLabel
                   required={false}
                   handleChange={handleInputChange}

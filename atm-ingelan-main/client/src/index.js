@@ -6,7 +6,7 @@ import { App } from './App';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const info = () => 'SELECT * FROM ATM'; 
+const info = () => 'SELECT * FROM atm_validation'; 
 console.log(info()); 
 root.render(
   <React.StrictMode>

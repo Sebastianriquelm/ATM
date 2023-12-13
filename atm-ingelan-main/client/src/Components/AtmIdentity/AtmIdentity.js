@@ -26,8 +26,9 @@ export default function AtmIdentity(props) {
     city:'', 
     ClientName:'', 
     Region:'',
-    
-    
+    photo1: null,
+    photo2: null,
+    photo3: null
   });
   const [submitStatus, setSubmitStatus] = useState('');
 
@@ -75,6 +76,7 @@ export default function AtmIdentity(props) {
     }
   }
 
+  
   return (
     <>
       <Header />

@@ -4,12 +4,12 @@ import TextInputLabel from '../TextInputLabel/TextInputLabel'
 import styles from './AtmIdAndLocation.module.css'
 
 export default function AtmIdAndLocation(props) {
-  const {atmId, handleInputChange, auditorname, setForm, form} = props
+  const {atmId,  handleInputChange, auditorname, setForm, form} = props
   const [disabledInput, setDisabledInput] = useState(false)
   const getAtmLocation = async () => {
     if (!form.atmId) return
     try {
-      const response = await fetch(`${URL}/atm/${atmId}`)
+      const response = await fetch(`${URL}/atm_validation/${atmId}`)
       const { auditorname } = await response.json()
       if (auditorname) {
         setForm(prev => ({...prev, auditorname: auditorname}))
@@ -46,7 +46,7 @@ export default function AtmIdAndLocation(props) {
           isDisabled={disabledInput ? 'yes' : 'no'}
         />
       </div>
-      
+     
     </>
   )
 }
