@@ -5,10 +5,7 @@ create table atm_validation (
 	ATMaddress text not null,
 	city text not  null,
 	ClientName text not null,
-	Region text not null,
-	ATMexteriorphoto boolean not null,
-	GeneralStateSpaceATM boolean not null,
-	GeneralStateATM boolean not null);
+	Region text not null);
 
 
 
@@ -30,9 +27,9 @@ create table atm_site (
 	Statemonitoringcameras boolean not null
 );
 
-alter table check_list
+alter table atm_site
 ADD FOREIGN KEY(atm_id)
-REFERENCES atm(atm_id);
+REFERENCES atm_validation(atm_id);
 
 create table physical_atm (
     atm_id int not null,

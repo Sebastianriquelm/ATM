@@ -20,7 +20,9 @@ const storage = multer.diskStorage({
     const year = date.getFullYear()
     const month = date.getMonth() + 1
     const day = date.getDate()
-    const fullDateString = `${year}-${formartNumber(month)}-${formartNumber(day)}`
+   
+    // Crea la cadena de fecha y hora
+    const fullDateString = `${formartNumber(day)}-${formartNumber(month)}-${year}`;
     cb(null, `${atmId}-${fullDateString}-${file.fieldname}.${mime.extension(file.mimetype)}`)
   }
 })
@@ -407,7 +409,7 @@ app.post('/atm-identity', fieldsUploadsAtmidentity, async (req, res) => {
     const formatedMinutes = formartNumber(minutes);
 
     // Crea la cadena de fecha y hora
-    const fullDateString = `${year}-${formartNumber(month)}-${formartNumber(day)} ${formatedHours}:${formatedMinutes}`;
+    const fullDateString = `${formartNumber(day)}-${formartNumber(month)}-${year} ${formatedHours}:${formatedMinutes}`;
     const {
       atmId,
       auditorname,
@@ -447,7 +449,7 @@ app.post('/atm-identity', fieldsUploadsAtmidentity, async (req, res) => {
         )
       VALUES ($1, $2, $3, $4, $5, $6, $7);
     `, [atmId,
-      day,
+      fullDateString,
       auditorname,
       ATMaddress,
       city,
@@ -470,14 +472,22 @@ app.get('/api/get-service-data/:atmId/:serviceType', (req, res) => {
     .then(serviceInfo => res.json(serviceInfo.rows))
     .catch(error => console.error(error))
 })
-
+//buscar como agregar un id unico a la foto
 app.get('/api/get-service-data/:atmId/:date/:serviceType', async (req, res) => {
   const { atmId, date, serviceType } = req.params
+
+  const formattedDate = date.split(' ')[0]; // Obtén 'dd-mm-yyyy'
+
+
   const imagesFiles = await readdir('./public/Images')
-  const filteredFiles = imagesFiles.filter(file => file.includes(`${atmId}-${date}`))
-  pool.query(`SELECT * FROM ${serviceType} WHERE atm_id = ${atmId} AND day = '${date}'`)
+  const filteredFiles = imagesFiles.filter(file => file.includes(`${atmId}-${formattedDate}`));
+  //const filteredFiles = imagesFiles.filter(file => file.includes(`${atmId}-${date}`))
+  //req.params.date = formattedDate;
+  pool.query(`SELECT * FROM ${serviceType} WHERE atm_id = ${atmId} AND day::text LIKE '${formattedDate}%'`)
+  //pool.query(`SELECT * FROM ${serviceType} WHERE atm_id = ${atmId} AND day = '${date}'`)
     .then(serviceInfo => res.json([serviceInfo.rows[0], filteredFiles]))
     .catch(error => console.error(error))
+    //console.log(formattedDate)
 })
 
 app.listen(PORT, () => {
