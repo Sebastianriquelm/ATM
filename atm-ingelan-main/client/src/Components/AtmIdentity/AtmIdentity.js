@@ -88,23 +88,13 @@ export default function AtmIdentity(props) {
               <AtmIdAndLocation
                 atmId={form.atmId}
                 auditorname={form.auditorname}
+                ATMaddress={form.ATMaddress}
                 handleInputChange={handleInputChange}
                 setForm={setForm}
                 form={form}
               />
               
-              <div className='itemContainer'>
-                <TextInputLabel
-                  className={styles.textInputLabel}
-                  title='Direccion ATM'
-                  required={true}
-                  name='ATMaddress'
-                  type="text"
-                  value={form.ATMaddress}
-                  handleChange={handleInputChange}
-                  isDisabled={disabledInput ? 'yes' : 'no'}
-                />
-              </div>
+              
 
               <div className='itemContainer'>
                 <TextInputLabel
